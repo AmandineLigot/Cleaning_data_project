@@ -7,26 +7,26 @@ run_analysis <- function() {
 
   #read and store the data
   
-  data_train <- read.table("X_train.txt", col.names = col_title[,2])
-  data_test <- read.table("X_test.txt", col.names = col_title[,2])
-  subject_train <- read.table("subject_train.txt", col.names = "Subject")
-  subject_test <- read.table("subject_test.txt", col.names = "Subject")
-  y_test <- read.table("y_test.txt", col.names = "Activity")
-  y_train <- read.table("y_train.txt", col.names = "Activity")
+  data_train <- read.table("train/X_train.txt", col.names = col_title[,2])
+  data_test <- read.table("test/X_test.txt", col.names = col_title[,2])
+  subject_train <- read.table("train/subject_train.txt", col.names = "Subject")
+  subject_test <- read.table("test/subject_test.txt", col.names = "Subject")
+  y_test <- read.table("test/y_test.txt", col.names = "Activity")
+  y_train <- read.table("train/y_train.txt", col.names = "Activity")
   activity <- read.table("activity_labels.txt", col.names = c("activity number", "activity label"))
   
   
   #merge the two data sets by rows
   tot_data <- rbind(data_train, data_test)
   
-  #extract columns of the mean and standard deviation for each measurement
-  tot_data <- tot_data[ , grepl("mean|std", colnames(tot_data))]
-  tot_data <- tot_data[ , !grepl("meanFreq", colnames(tot_data))]
-  
   #bind the activity reference and the subject number in one matrix
   train <- cbind(subject_train,y_train)
   test <- cbind(subject_test, y_test)
   tot <- rbind(train, test)
+  
+  #extract columns of the mean and standard deviation for each measurement
+  tot_data <- tot_data[ , grepl("mean|std", colnames(tot_data))]
+  tot_data <- tot_data[ , !grepl("meanFreq", colnames(tot_data))]
   
   #add the data on subject and activity on the data set and rearrange the data in function of subject and activity
   tot_data <- cbind(tot, tot_data)
