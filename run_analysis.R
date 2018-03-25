@@ -72,7 +72,7 @@ run_analysis <- function() {
   grouped <- group_by(tot_data, Subject, Activity)
   grouped <- summarize_all(grouped, mean)
   
-  write.table(grouped, "tidy_set.txt")
+  write.table(grouped, "tidy_set.txt", row.names = FALSE)
 }
   
   
