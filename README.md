@@ -18,7 +18,7 @@ This script will read the folowing data:
 * y_test.txt
 * activity_labels.txt
 
-And it will generate a text file with the name **tidy_set.txt**. It is a matrix containing 180 lines and 68 columns.
+And it will generate a text file with the name **tidy_set.txt**. It is a matrix containing 181 lines and 68 columns.
 It gathers the average of each variable for each subject and activity.
 This file can be read with the following command: read.table("tidy_set.txt")
 
