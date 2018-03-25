@@ -83,10 +83,11 @@ Additional vectors obtained by averaging the signals in a signal window sample. 
 
 **Features are normalized and bounded within [-1,1]. So none of the variables have units.**
 
-# Analysis of the data set#
+# Analysis of the data set #
 
 The aim of this analysis is to create a tidy data set that gathers the average of each chosen variables in function of the subject and the activity.
 The analysis is made with **run_analysis.R**. The script should be copied in the folder named "UCI HAR Dataset" in order to be able to run.
+This script needs tu install and upload the package **dplyr**.
 
 ## First step ##
 
